@@ -25,7 +25,7 @@ end
 
 Base.show(io::IO, t::Type{<:TypeLevel{T}}) where T = show_repr(io, t)
 
-@trait Typeable{T} begin
+@typeclass Typeable{T} begin
     to_type    :: T => Type{<:TypeLevel{T}}
     to_type(x::T) = TVal{T, x}
     from_type  :: Type{<:TypeLevel{T}} => T
